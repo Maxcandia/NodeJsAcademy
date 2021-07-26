@@ -15,10 +15,29 @@ const mostrarMenu = () => {
     console.log(`${'6.'.yellow} Borrar tarea`);
     console.log(`${'0.'.yellow} Salir\n`);
 
+    const readline = require('readline').createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
     
-
+    readline.question('Seleccione una opcion: ', (opt) =>{
+        readline.close();
+    })
 }
+    const pausa = () => {
+        const readline = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+        
+        readline.question(`\n Presione ${'ENTER'.yellow} para continuar\n `, (opt) =>{
+            readline.close();
+        });
+    }
 
 
 
-module.exports = { mostrarMenu}
+
+module.exports = { mostrarMenu,
+     pausa
+    }
