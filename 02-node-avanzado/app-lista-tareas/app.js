@@ -8,7 +8,7 @@ const main = async() => {
     
     mostrarMenu();
 
-    pausa();
+    //pausa();
 };
 
 main();
