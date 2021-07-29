@@ -1,10 +1,6 @@
 const colors  = require('colors');
-const { guardarDB } = require('./helpers/guardarArchivo');
-const { 
-    inquirerMenu,
-    pausa,
-    leerInput,
- } = require('./helpers/inquirer');
+const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
+const { inquirerMenu,pausa,leerInput} = require('./helpers/inquirer');
 //const { mostrarMenu, pausa } = require('./helpers/mensajes');
 const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
@@ -16,6 +12,10 @@ const main = async() => {
     
     let opt = '';
     const tareas = new Tareas();
+    const bdData = leerDB();
+    console.log(bdData);
+        await pausa();
+
     do {
         opt = await inquirerMenu();
         
