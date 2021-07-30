@@ -19,7 +19,7 @@ const preguntas = [
 ];
 
 const inquirerMenu = async() => {
-    console.clear();
+    
     console.log('======================='.blue);
     console.log(' Seleccione una opcion'.yellow);
     console.log('=======================\n'.blue);

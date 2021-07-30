@@ -6,15 +6,19 @@ const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
 
-console.clear();
+
 
 const main = async() => {
     
     let opt = '';
     const tareas = new Tareas();
+
+
     const bdData = leerDB();
-    console.log(bdData);
-        await pausa();
+    if(bdData) {
+        tareas.cargarTareasFromArray(bdData);
+    }
+
 
     do {
         opt = await inquirerMenu();
@@ -27,7 +31,7 @@ const main = async() => {
                 break;
 
             case '2':
-                console.log( tareas.listadoArr );
+                tareas.listadoCompleto();
                 break;
         }
        
