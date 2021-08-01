@@ -27,14 +27,26 @@ class Tareas {
         });
     } 
     
-    listadoCompleto(){
-        this.listadoArr.forEach((tarea, i) => {
-            const estado = tarea.completadoEn ? "Completada".yellow : "Pendiente".red;
-            const numero = i + 1;
-            console.log(`${numero} ${tarea.desc} :: ${estado}`);
-        });
+    formatearTarea(tarea, i){
+        const indice = `${i + 1}.`.yellow;
+        const estado = tarea.completadoEn
+                        ? 'Completada'.yellow 
+                        : 'Pendiente'.red;
+        return `${indice} ${tarea.desc} :: ${estado}`;
     }
-    
+
+    listadoCompleto(){
+        this.listadoArr.forEach((tarea, i) => 
+        console.log(this.formatearTarea(tarea,i)));
+    }
+
+    listarPendientesCompletas(completadas = true) {
+        const list = this.listadoArr.filter((tarea) => 
+            completadas ? tarea.completadoEn : !tarea.completadoEn);
+        list.forEach((tarea,i) => console.log(this.formatearTarea(tarea,i)));
+    }
+   
+  
 }
 
 module.exports = Tareas;
