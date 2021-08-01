@@ -29,7 +29,6 @@ class Tareas {
     
     formatearTarea(tarea, i){
         const indice = `${i + 1}.`.yellow;
-        const {desc, completadoEn} = tarea;
         const estado = tarea.completadoEn
                         ? 'Completada'.yellow 
                         : 'Pendiente'.red;
